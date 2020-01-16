@@ -21,6 +21,8 @@ code .
 ```
 npm start
 ```
+## Screenshot
+![Database](https://user-images.githubusercontent.com/18029014/72514463-376c4300-3881-11ea-83c4-a97f5a8df64c.png)
 
 ## Know Bug
 
