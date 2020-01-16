@@ -24,6 +24,7 @@ npm start
 ## Screenshot
 ![Database](https://user-images.githubusercontent.com/18029014/72514463-376c4300-3881-11ea-83c4-a97f5a8df64c.png)
 
+![Postman](https://user-images.githubusercontent.com/18029014/72515307-40a9df80-3882-11ea-8b71-b7f8a3e87aba.png)
 ## Know Bug
 
 > Can't get a string value of single quoate (')
