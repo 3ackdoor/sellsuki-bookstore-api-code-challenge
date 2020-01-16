@@ -54,22 +54,24 @@ app.post("/purchase", async (req, res) => {
         const amount = await bookRepository.findOne({ name: data.name })
         if (!amount)
           // why it does not throw error msg ??
-          throw new Error({
-            message: "This product does not exist",
-          })
-        res.status(404).end()
+          throw new Error(
+            { message: "This product does not exist", statusCode: 404 },
+            res.status(404).end()
+          )
 
         if (!data.quantity || data.quantity < 1)
-          throw new Error({
+          throw (new Error({
             message: "ERROR_INVALID_ORDER_NUMBER",
-          })
-        res.status(404).end()
+            statusCode: 404,
+          }),
+          res.status(404).end())
 
         if (amount.quantity < data.quantity)
-          throw new Error({
+          throw (new Error({
             message: "This product is currently out of stock and unavailable",
-          })
-        res.status(404).end()
+            statusCode: 404,
+          }),
+          res.status(404).end())
 
         await Object.assign(amount, {
           ...data,
