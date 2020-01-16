@@ -21,3 +21,9 @@ code .
 ```
 npm start
 ```
+
+## Know Bug
+
+```
+- can't get a string value of single quoate eg. *Harry Potter and the Philosopher's Stone*
+```
