@@ -40,9 +40,8 @@ app.post("/add-new-book", async (req, res) => {
   await book.save().then(() => console.log("create !!!!"))
   res.json({
     payload,
-    status: 200,
   })
-  res.status(201).end()
+  res.status(200).end()
 })
 
 // buy book
@@ -55,24 +54,22 @@ app.post("/purchase", async (req, res) => {
         const amount = await bookRepository.findOne({ name: data.name })
         if (!amount)
           // why it does not throw error msg ??
-          throw new Error(
-            { message: "This product does not exist", statusCode: 404 },
-            res.status(404).end()
-          )
+          throw new Error({
+            message: "This product does not exist",
+          })
+        res.status(404).end()
 
         if (!data.quantity || data.quantity < 1)
-          throw (new Error({
+          throw new Error({
             message: "ERROR_INVALID_ORDER_NUMBER",
-            statusCode: 404,
-          }),
-          res.status(404).end())
+          })
+        res.status(404).end()
 
         if (amount.quantity < data.quantity)
-          throw (new Error({
+          throw new Error({
             message: "This product is currently out of stock and unavailable",
-            statusCode: 404,
-          }),
-          res.status(404).end())
+          })
+        res.status(404).end()
 
         await Object.assign(amount, {
           ...data,
@@ -107,20 +104,6 @@ app.post("/purchase", async (req, res) => {
     if (data.length === 6) discount = 0.5
     if (data.length === 7 || data.length === 8) discount = 0.6
 
-    // data.length === 2
-    //   ? (discount = 0.1)
-    //   : data.length === 3
-    //   ? (discount = 0.2)
-    //   : data.length === 4
-    //   ? (discount = 0.3)
-    //   : data.length === 5
-    //   ? (discount = 0.4)
-    //   : data.length === 6
-    //   ? (discount = 0.5)
-    //   : 6 < data.length > 9
-    //   ? (discount = 0.6)
-    //   : 0
-
     // find minimum number in 2 dimensions array
     let minNumber = Math.min.apply(
       Math,
@@ -152,11 +135,3 @@ app.post("/purchase", async (req, res) => {
 app.listen(9000, () => {
   console.log("Application is running on port 9000")
 })
-
-////////////////////////////////////////////////////////////////////////
-// const updateQuantity = await bookRepository.update(
-//   query,
-//   { ...payload, quantity: amount.quantity - payload.quantity },
-//   { new: true }
-// ).then(() => console.log("purchase !!!!!"))
-////////////////////////////////////////////////////////////////////////
