@@ -24,7 +24,8 @@ npm start
 
 ## Know Bug
 
+> Can't get a string value of single quoate (')
+
 ```
-- can't get a string value of single quoate (')
 eg. Harry Potter and the Philosopher's Stone
 ```
