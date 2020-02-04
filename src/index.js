@@ -119,6 +119,7 @@ app.post("/purchase", async (req, res) => {
     for (let m = 0; m < data.length; m++) {
       amount = amount + data[m][0].quantity
       price = price + data[m][0].quantity * 100
+      // price = price + data[m][0].quantity * data[m][0].price
     }
 
     maxDiscountForBook = data.length * 100
