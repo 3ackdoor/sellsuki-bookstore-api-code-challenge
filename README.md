@@ -13,7 +13,7 @@ or
 git clone https://github.com/3ackdoor/Harry-Potter.git
 ```
 
-> Open CLI with your code editor (navigate to Harry-Potter folder)
+> Open CLI (navigate to Harry-Potter folder)
 
 ```
 code .
