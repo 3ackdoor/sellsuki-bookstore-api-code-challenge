@@ -1,6 +1,6 @@
 # Bookstore API
 
-## Question
+## Issue
 > https://github.com/Sellsuki/naidin?fbclid=IwAR3vRsIeJgbAt__sgzwgjkc76zV0oVirKQXBdVVkGy3k0_TZDJjOhKNo6Vk
 
 ## How to
